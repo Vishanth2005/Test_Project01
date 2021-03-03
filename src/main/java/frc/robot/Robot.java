@@ -4,10 +4,13 @@
 
 package frc.robot;
 
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import frc.robot.commands.MoveSequence;
+//import frc.robot.commands.MoveSequence;
 import frc.robot.subsystems.DriveTrain;
 
 
@@ -19,10 +22,16 @@ import frc.robot.subsystems.DriveTrain;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static DriveTrain driveTrain = new DriveTrain();
-  public static OI m_oi;
+ // private static CANSparkMax motorLeft1 = new CANSparkMax(RobotMap.Motor_LEFT_1_ID, MotorType.kBrushed);
+ private static CANSparkMax motorLeft2 = new CANSparkMax(RobotMap.Motor_LEFT_2_ID, MotorType.kBrushed);
+ // private static CANSparkMax motorRight1 = new CANSparkMax(RobotMap.Motor_RIGHT_1_ID, MotorType.kBrushed);
+  //private static CANSparkMax motorRight2 = new CANSparkMax(RobotMap.Motor_RIGHT_2_ID, MotorType.kBrushed);
+  //public static DriveTrain driveTrain = new DriveTrain(motorLeft1, motorLeft2, motorRight1, motorRight2);
 
-  Command m_autonomousCommand;
+ 
+  //public static OI m_oi;
+
+ Command m_autonomousCommand;
 
 
   /**
@@ -31,9 +40,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {// happens when the code starts
-    m_oi = new OI();
+   // m_oi = new OI();
     //you have to initalize the autonomous command 
-    m_autonomousCommand = new MoveSequence();
+   // m_autonomousCommand = new MoveSequence();
 
    
   }
@@ -73,6 +82,9 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
    if (m_autonomousCommand != null) m_autonomousCommand.start();
+   motorLeft2.set(.3);
+
+   //Scheduler.getInstance();
 //you need this to start the autonomous command 
 
 

@@ -9,15 +9,21 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.TankDrive;
+//import frc.robot.commands.TankDrive;
 
 /** Add your docs here. */
 public class DriveTrain extends Subsystem {
-  private  CANSparkMax motorLeft1 = new CANSparkMax(RobotMap.Motor_LEFT_1_ID, MotorType.kBrushed);
-  private  CANSparkMax motorLeft2 = new CANSparkMax(RobotMap.Motor_LEFT_2_ID, MotorType.kBrushed);
-  private  CANSparkMax motorRight1 = new CANSparkMax(RobotMap.Motor_RIGHT_1_ID, MotorType.kBrushed);
-  private  CANSparkMax motorRight2 = new CANSparkMax(RobotMap.Motor_RIGHT_2_ID, MotorType.kBrushed);
- 
+  private CANSparkMax motorLeft1;
+  private CANSparkMax motorLeft2;
+  private CANSparkMax motorRight1;
+  private CANSparkMax motorRight2;
+  public DriveTrain(CANSparkMax motorLeft1, CANSparkMax motorLeft2, CANSparkMax motorRight1, CANSparkMax motorRight2 ){
+   this.motorLeft1 = motorLeft1;
+   this.motorLeft2 = motorLeft2;
+   this.motorRight1 = motorRight1;
+   this.motorRight2 = motorRight2;
+  }
+
 
   
   // Put methods for controlling this subsystem
@@ -25,7 +31,7 @@ public class DriveTrain extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
-    setDefaultCommand(new TankDrive());
+    //setDefaultCommand(new TankDrive());
     
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
