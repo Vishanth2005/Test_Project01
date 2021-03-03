@@ -22,8 +22,8 @@ import frc.robot.subsystems.DriveTrain;
  * project.
  */
 public class Robot extends TimedRobot {
- // private static CANSparkMax motorLeft1 = new CANSparkMax(RobotMap.Motor_LEFT_1_ID, MotorType.kBrushed);
- private static CANSparkMax motorLeft2 = new CANSparkMax(RobotMap.Motor_LEFT_2_ID, MotorType.kBrushed);
+  private static CANSparkMax motorLeft1 = new CANSparkMax(RobotMap.Motor_LEFT_1_ID, MotorType.kBrushed);
+// private static CANSparkMax motorLeft2 = new CANSparkMax(RobotMap.Motor_LEFT_2_ID, MotorType.kBrushed);
  // private static CANSparkMax motorRight1 = new CANSparkMax(RobotMap.Motor_RIGHT_1_ID, MotorType.kBrushed);
   //private static CANSparkMax motorRight2 = new CANSparkMax(RobotMap.Motor_RIGHT_2_ID, MotorType.kBrushed);
   //public static DriveTrain driveTrain = new DriveTrain(motorLeft1, motorLeft2, motorRight1, motorRight2);
@@ -82,7 +82,7 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
    if (m_autonomousCommand != null) m_autonomousCommand.start();
-   motorLeft2.set(.3);
+   motorLeft1.set(.3);
 
    //Scheduler.getInstance();
 //you need this to start the autonomous command 
